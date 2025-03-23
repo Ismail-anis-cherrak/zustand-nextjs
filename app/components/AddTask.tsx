@@ -6,10 +6,10 @@ export default function AddTask() {
   const [text, setText] = useState("");
   const addTask = useTaskStore((state) => state.addTask);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!text.trim()) return;
-    addTask(text);
+    await addTask(text);
     setText(""); // Clear input after adding
   };
 
